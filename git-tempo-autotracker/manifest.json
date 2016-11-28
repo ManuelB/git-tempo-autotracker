@@ -1,0 +1,75 @@
+ {
+     "_version": "1.1.0",
+     "sap.app": {
+         "_version": "1.1.0",
+         "id": "git-tempo-autotracker",
+         "type": "application",
+         "title": "{{appTitle}}",
+         "description": "{{appDescription}}",
+         "applicationVersion": {
+             "version": "1.0.0"
+         }
+     },
+     "sap.ui": {
+         "_version": "1.1.0",
+         "technology": "UI5",
+         "deviceTypes": {
+             "desktop": true,
+             "tablet": true,
+             "phone": true
+         },
+         "supportedThemes": [
+             "sap_bluecrystal"
+         ]
+     },
+     "sap.ui5": {
+         "_version": "1.1.0",
+         "rootView": "git-tempo-autotracker.view.App",
+         "dependencies": {
+             "minUI5Version": "1.38",
+             "libs": {
+                 "sap.m": {
+
+                 }
+             }
+         },
+         "models": {
+             "i18n": {
+                 "type": "sap.ui.model.resource.ResourceModel",
+                 "settings": {
+                     "bundleName": "git-tempo-autotracker.i18n.i18n"
+                 }
+             }
+         },
+         "routing": {
+             "config": {
+                 "routerClass": "sap.m.routing.Router",
+                 "viewType": "XML",
+                 "viewPath": "git-tempo-autotracker.view",
+                 "controlId": "app",
+                 "controlAggregation": "pages",
+                 "clearTarget": false,
+                 "transition": "slide",
+                 "bypassed": {
+                     "target": "notFound"
+                 }
+             },
+             "routes": [{
+                 "pattern": "",
+                 "name": "Home",
+                 "target": ["home"]
+             }],
+             "targets": {
+                 "home": {
+                     "viewName": "Home",
+                     "controlId": "app",
+                     "controlAggregation": "pages"
+                 },
+                 "notFound": {
+                     "viewName": "NotFound",
+                     "transition": "show"
+                 }
+             }
+         }
+     }
+ }

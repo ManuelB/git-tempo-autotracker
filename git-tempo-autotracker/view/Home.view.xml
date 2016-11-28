@@ -1,0 +1,47 @@
+<mvc:View 
+    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc" controllerName="git-tempo-autotracker.controller.Home">
+    <Page title="Home">
+        <ObjectHeader title="{i18n>appTitle}" />
+        <Panel>
+            <Text text="{i18n>appDescription}"></Text>
+        </Panel>
+        <HBox>
+            <DatePicker dateValue="{/startDate}">
+                <layoutData>
+                    <FlexItemData growFactor="1" />
+                </layoutData>
+            </DatePicker>
+            <DatePicker dateValue="{/endDate}">
+                <layoutData>
+                    <FlexItemData growFactor="1" />
+                </layoutData>
+            </DatePicker>
+        </HBox>
+        <Table columns="{/dates}" items="{path: '/issueDayTimeLog', templateShareable:false}">
+            <columns>
+                <Column>
+                    <Text text="{path:'value', formatter: '.formatValue'}" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem cells="{path: 'hoursByDay', templateShareable:false}">
+                    <Panel>
+                        <Text text="{ticket}" visible="{= ${type} === 'ticket'}" />
+                        <Input value="{hours}" visible="{= ${type} === 'hours'}" />
+                        <CheckBox selected="{save}" visible="{= ${type} === 'hours'}" />
+                    </Panel>
+                </ColumnListItem>
+            </items>
+        </Table>
+        <footer>
+            <Toolbar>
+                <Button text="Configure JIRA connection" press="onJiraConfigurationShow" />
+                <Button text="Configure Bitbucket connection" press="onBitbucketConfigurationShow" />
+                <ToolbarSpacer/>
+                <Button text="Generate Timetracking Recommendation" type="Accept" press="onGenereateTimetrackingRecommendation" />
+                <Button text="Send checked logs to JIRA" type="Accept" press="onSendCheckedLogsToJira" />
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

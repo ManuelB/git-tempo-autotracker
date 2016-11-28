@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <script id='sap-ui-bootstrap' src="https://openui5.hana.ondemand.com/1.40.8/resources/sap-ui-core.js" data-sap-ui-theme='sap_belize' data-sap-ui-libs='sap.m' data-sap-ui-compatVersion='edge' data-sap-ui-preload='async' data-sap-ui-bindingSyntax='complex'
+        data-sap-ui-preload='async' data-sap-ui-resourceroots='{
+	 	"git-tempo-autotracker" : "./git-tempo-autotracker"
+	 }'>
+    </script>
+
+    <script>
+        sap.ui.getCore().attachInit(function() {
+            new sap.ui.core.ComponentContainer({
+                name: "git-tempo-autotracker"
+            }).placeAt("content");
+        });
+    </script>
+</head>
+
+<body class='sapUiBody'>
+    <div id='content'></div>
+</body>
+
+</html>
