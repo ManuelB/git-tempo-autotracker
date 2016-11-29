@@ -109,7 +109,7 @@ sap.ui.define([
                                 method: "POST",
                                 data: JSON.stringify({
                                     "comment": "Autotrack via git-tempo-autotracker.",
-                                    "started": (date.getYear() + 1900) + "-" + (month < 10 ? "0" : "") + month + "-" + (days < 10 ? "0" : "") + days + "T00:00:00.000Z",
+                                    "started": (date.getYear() + 1900) + "-" + (month < 10 ? "0" : "") + month + "-" + (days < 10 ? "0" : "") + days + "T00:00:00.000+0000",
                                     "timeSpentSeconds": hoursByDay[logNum].hours * 3600
                                 }),
                                 contentType: "application/json",
